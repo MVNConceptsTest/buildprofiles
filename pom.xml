@@ -16,10 +16,16 @@
       <profile>
          <id>test</id>
          <activation>
-            <property>
+            <!--property>
                <name>env</name>
                <value>test</value>
-            </property>
+            </property-->
+            <!--os>
+               <family>mac</family>
+            </os-->
+            <file>
+               <missing>${basedir}/pom1.xml</missing>
+            </file>
          </activation>
          <build>
             <plugins>
@@ -36,8 +42,7 @@
                         <configuration>
                            <tasks>
                               <echo>Using env.test.properties</echo>
-                              <copy file="src/main/resources/env.test.properties"
-                                 tofile="${project.build.outputDirectory}/env.properties"/>
+                              <copy file="${basedir}/src/main/resources/env.test.properties" tofile="${project.build.outputDirectory}/env.properties" overwrite="true"/>
                            </tasks>
                         </configuration>
                      </execution>
@@ -64,7 +69,7 @@
                            <tasks>
                               <echo>Using env.properties</echo>
                               <copy file="src/main/resources/env.properties"
-                                 tofile="${project.build.outputDirectory}/env.properties"/>
+                                 tofile="${project.build.outputDirectory}/env.properties" overwrite="true"/>
                            </tasks>
                         </configuration>
                      </execution>
@@ -91,7 +96,7 @@
                            <tasks>
                               <echo>Using env.prod.properties</echo>
                               <copy file="src/main/resources/env.prod.properties"
-                                 tofile="${project.build.outputDirectory}/env.properties"/>
+                                 tofile="${project.build.outputDirectory}/env.properties" overwrite="true"/>
                            </tasks>
                         </configuration>
                      </execution>
