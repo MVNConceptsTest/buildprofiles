@@ -38,8 +38,5 @@ bin/
 *.jar
 .metadata/
 Servers/
-*.png
 
 node_modules/
-
-/.gradle
